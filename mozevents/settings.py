@@ -35,6 +35,7 @@ STATICFILES_DIRS = (
 LANGUAGES = (
     ('es', _('Spanish')),
     ('en', _('English')),
+    ('ne', _('Nepali'))
 )
 
 LOCALE_PATHS = (

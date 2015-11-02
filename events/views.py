@@ -19,7 +19,6 @@ from events.utils import newMail, pendingMail
 def index(request):
     """Events index (home) page."""
     now = datetime.datetime.now()
-
     nextEvents = Event.objects.filter(
         active=True, eventDate__gte=now).order_by('eventDate')
     oldEvents = Event.objects.filter(

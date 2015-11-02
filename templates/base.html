@@ -264,8 +264,9 @@
           <div class="cc">
             <a href="http://mozilla-hispano.org/documentacion/Organizaci%C3%B3n_de_Mozilla_Hispano#Licencia" title="Licencia para el uso del contenido de este proyecto"><img src="//mozilla-hispano.org/images/cc-by-sa.png" alt="cc-by-sa"/></a>
           </div>
-          <form id="lang-selector" action="/i18n/setlang/" method="post">
+          <form id="lang-selector" action="{% url 'set_language' %}" method="post">
             {% csrf_token %}
+            <input name="next" type="hidden" value="{{ redirect_to  }}" />
             <select name="language">
               {% for lang in LANGUAGES %}
                 <option value="{{ lang.0 }}" {% if lang.0 == request.LANGUAGE_CODE %}selected="selected"{% endif %}>{{ lang.1 }}</option>
@@ -298,10 +299,10 @@
          <nav class="footer-nav">
           <strong>Webs Mozilla</strong>
           <ul>
-            <li><a href="http://addons.mozilla.org/es-ES/">Mozilla Addons</a></li>
-            <li><a href="http://developer.mozilla.org/es">Mozilla Developer Network</a></li>
-            <li><a href="http://www.mozilla.org/es-ES/newsletter/">Boletín Firefox</a></li>
-            <li><a href="http://input.mozilla.com/es/">Firefox Input</a></li>
+            <li><a href="http://addons.mozilla.org/en-US/">Mozilla Addons</a></li>
+            <li><a href="http://developer.mozilla.org/en-US">Mozilla Developer Network</a></li>
+            <li><a href="http://www.mozilla.org/en-US/newsletter/">Mozilla Newsletter</a></li>
+            <li><a href="http://input.mozilla.com/en-US/">Firefox Input</a></li>
           </ul>
         </nav>
         <nav class="footer-nav">
